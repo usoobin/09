@@ -7,19 +7,23 @@
 int main(int argc, char *argv[]) 
 {
 	int i;
-	int score[SIZE];
-	int grade[SIZE];
-	
-
-	for (i=0;i<SIZE;i++)
-	{
-		grade[i] = rand() % 100;
-		score[i] = grade[i];
-	}
+	int a[SIZE] = {1,2,3,4,5};
+	int b[SIZE] = {1,2,3,4,5};
+	int flag = 1;  //이벤트가 발생하면 1 아니면 0 
 
 	for (i=0; i<SIZE; i++)
 	{
-		printf("score[%d] = %d\n",i,score[i]);
+		if (a[i] != b[i])
+		{
+			flag = 1; 
+			printf("배열값이 같은 값을 가집니다\n");
+			break; // 5개중 같은게 없을경우 나감 
+		}
+		
+	}
+	if(flag == 0 )
+	{
+		printf("배열값이 같은 값을 가집니다\n");
 	}
 
 	
