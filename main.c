@@ -1,41 +1,60 @@
 #include <stdio.h>
-#include <stdlib.h>
-#define SIZE 4
+#define ROWS 3
+#define COLS 3
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-void square_array(int a[], int size);
-void print_array(int a[], int size);
+void addMatrx(int A[][COLS], int B[][COLS], int C[][COLS]);
+void printMatrx(int A[][COLS]);
+
 
 int main(int argc, char *argv[]) 
 {
-	int list[SIZE] = {1,2,3,4};
+	int A[ROWS][COLS] = {
+		{2,3,0},
+		{8,9,1},
+		{7,0,5}};
 
-	print_array(list, SIZE);
-	square_array(list, SIZE);
-	print_array(list, SIZE);
+	int B[ROWS][COLS] = {
+		{1,0,0},
+		{0,1,0},
+		{0,0,1}};
+
+	int C[ROWS][COLS];
+	
+	addMatrx(A,B,C);
+	printMatrx(C);
 	
 	return 0;
 }
 
-	void square_array(int a[], int size)
-	{
-		int i;
 
-		for(i=0; i<SIZE; i++)
+	void addMatrx(int A[][COLS],int B[][COLS],int C[][COLS])
+	{
+		int i,j;
+	
+		for(j=0; j<ROWS; j++)
+		{
+		 
+		for(i=0; i<COLS; i++)
 		{ 
-			a[i] = a[i] * a[i];
+			C[j][i] = A[j][i] + B[j][i]; 
 		}
 	}
+	}
 
-	void print_array(int a[], int size)
+	void printMatrx(int A[][COLS])
 	{			
-		int i;
-
-		for(i=0; i<SIZE; i++)
+		int i,j;
+		
+		for(j=0; j<ROWS; j++)
 		{
-			printf("%3d", a[i]);
+
+		for(i=0; i<COLS; i++)
+		{
+			printf("%3d", A[j][i]);
 		}
 		
 		printf("\n");
+	}
 	}
